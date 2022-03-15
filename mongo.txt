@@ -1,0 +1,15 @@
+use assignment
+db.createCollection("user")
+db.user.insert({"first_name":"Rahul","last_name":"Dev","email":"rahul@gmail.com", "gender":"male", "ip_address":"127.0.0.1","age":"25"})
+db.user.insert({"first_name":"Rajiv","last_name":"Kumar","email":"rajiv@gmail.com", "gender":"male", "ip_address":"127.0.0.2","age":"28"})
+db.user.insertMany([{"first_name":"Riju","last_name":"S","email":"riju@gmail.com", "gender":"male", "ip_address":"127.0.0.3","age":"26"},
+                    {"first_name":"Prashant","last_name":"Nanda","email":"prashant@gmail.com", "gender":"male", "ip_address":"127.0.0.4","age":"25"},
+                    {"first_name":"Soma","last_name":"Roy","email":"soma@gmail.com", "gender":"female", "ip_address":"127.0.0.5","age":"24"}])
+
+db.user.find({"age":"25"}).pretty()
+db.user.findOne({"age":"25"}).pretty()
+db.user.update({"age":"25"}, {$set:{"country":"India}})
+db.user.updateMany({"age":"25"}, {$set:{"religion":"Hindu}})
+db.user.remove({"_id": ObjectId("6230c661def6c43437913297")})
+db.user.remove({"age":"25"},2)
+db.dropDatabase()
